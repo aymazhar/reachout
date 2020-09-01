@@ -16,6 +16,12 @@
   --medium-aqua: #84cac1;
   --white-smoke: #f5f5f5;
   --sandy-brown: #e9c367;
+  
+  /* PADDING & MARGINS */
+  --base-small: 8px;
+  --base-padding: 24px;
+  --base-padding-large: 48px;
+  
 }
 
 body{
@@ -26,24 +32,32 @@ body{
 }
 
 p {
-  padding: 1rem;
+  padding: var(--base-padding);
 }
 
 h1{
-  padding: 2rem;
+  padding: var(--base-small);
+}
+
+.h-line{
+  width: 152px;
+  height: calc(var(--base-small) / 2);
+  background-color: var(--medium-aqua);
+  margin: 0 auto;
+  margin-bottom: calc(var(--base-small) * 2);;
 }
 
 .container{
   width: 100%;
   height: 100%;
-  padding: 4rem 2rem;
+  padding: var(--base-padding-large) var(--base-padding);
 }
 
 button{
   all:unset;
   background-color: var(--hot-pink);
   color: white;
-  padding: 0.5rem 1.5rem;
+  padding: var(--base-small) var(--base-padding);
   border-radius: 10px;
   border: none;
 }
@@ -61,6 +75,8 @@ button:focus {
 
 
 .landing {
+  display: flex;
+  align-items: center;
   height: 93vh;
   background-color: var(--slate);
   box-shadow: 0px 0px 100px black inset;
@@ -68,38 +84,133 @@ button:focus {
 .landing h1{
   text-align: center;
   color: white;
+  font-size: 2.5rem;
 }
+.landing img {
+  width: 50%;
+  height: auto;
+  padding: var(--base-small) 0;
+}
+
 
 nav{
   height: 7vh;
   width: 100%;
   background-color:var(--space-gray);
-  border-bottom: 10px solid var(--medium-aqua);
+  border-bottom: var(--base-small) solid var(--medium-aqua);
 }
-
 nav a {
   text-decoration: none;
   color: white;
 }
 
-#register{
+
+#register {
 background-color: var(--white-smoke);
 }
+#register .register-content{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+}
 
+
+
+
+/* CONTACT & FOOTER */
 #contact { 
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  text-align: left;
+  line-height: 1.5rem;
+  justify-content: space-evenly;
+  align-items: flex-start;
   background-color: var(--slate);
   box-shadow: 0px 0px 100px black inset;
   color: white;
 }
-
-
-footer{
-  /* height: 45px;
-  line-height: 45px; */
-  background-color: var(--white-smoke);
-  font-size: 0.75rem;
+#contact p, #contact h3{
+  padding-left: 0;
+  padding-right: 0;
+}
+#contact h3{
+  color: var(--medium-aqua);
+}
+#contact .contact-col{
+  padding: var(--base-padding-large)  var(--base-padding);
+}
+#contact .logo{
+  width: 13rem;
+  height: auto;
+}
+#contact a{
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+#contact .fa-instagram{
+  font-size: calc(var(--base-padding) * 1.5);
+  margin-top: var(--base-padding);
+}
+#contact .fa-instagram:hover,  #contact a:hover{
+  color: var(--hot-pink);
 }
 
+
+
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 9999;
+  padding-top: calc(var(--base-padding-large)*2.5); 
+  padding-bottom: calc(var(--base-padding-large)*2.5); 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+.modal-body {
+  background-color: white;
+  margin: auto;
+  box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  width: 80%;
+}
+.content{
+  padding: calc(var(--base-padding) *2);
+  padding-top: var(--base-padding);
+}
+.modal-header{
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: calc(var(--base-padding)/2) calc(var(--base-padding)*2);
+}
+.close {
+  color:var(--slate);
+  text-align: right;
+  font-size: calc(var(--base-padding) * 1.5);
+}
+.close:hover,
+.close:focus {
+  color: var(--space-gray);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+/* TABLET */
+@media screen and (max-width: 788px){
+  #contact .contact-col{
+    width: 100%;
+  }
+}
