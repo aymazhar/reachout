@@ -114,7 +114,17 @@ background-color: var(--white-smoke);
   justify-content: space-evenly;
 }
 
-
+/* SPONSORS */
+#sponsors .logos{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  padding: var(--base-padding-large);
+}
+#sponsors .logo{
+  height: 65px;
+  margin: var(--base-padding);
+}
 
 
 /* CONTACT & FOOTER */
