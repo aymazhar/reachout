@@ -25,7 +25,6 @@
 }
 
 body{
-  /* display: inline-block; */
   position: relative;
   text-align: center;
   color: var(--slate);
@@ -53,7 +52,7 @@ h1{
   padding: var(--base-padding-large) var(--base-padding);
 }
 
-button{
+.btn{
   all:unset;
   background-color: var(--hot-pink);
   color: white;
@@ -62,11 +61,11 @@ button{
   border: none;
 }
 
-button:hover{
+.btn:hover{
   background: var(--hot-pink-dark);
 }
 
-button:focus {
+.btn:focus {
   box-shadow: 0 0 0 1px var(--hot-pink-dark);
 }
 
@@ -74,34 +73,60 @@ button:focus {
 
 
 
-.landing {
+#landing {
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   height: 93vh;
   background-color: var(--slate);
   box-shadow: 0px 0px 100px black inset;
 }
-.landing h1{
-  text-align: center;
+#landing h1{
   color: white;
   font-size: 2.5rem;
 }
-.landing img {
-  width: 50%;
-  height: auto;
+#landing img {
+  width: 35rem;
   padding: var(--base-small) 0;
 }
 
 
 nav{
-  height: 7vh;
+  height: 50px;
   width: 100%;
   background-color:var(--space-gray);
-  border-bottom: var(--base-small) solid var(--medium-aqua);
+  border-bottom: calc(var(--base-small)/2) solid var(--medium-aqua);
+  display: flex;
+  flex: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+nav .nav-menu {
+  display: flex;
 }
 nav a {
   text-decoration: none;
   color: white;
+  margin: 0 var(--base-padding);
+}
+nav a:hover{
+ color: var(--medium-aqua);
+ transition: all 250ms ease;
+}
+.navbar-fixed{
+  position: fixed;
+  top: 0;
+}
+nav .nav-button{
+  all: unset;
+  display: none;
+  padding: calc(var(--base-small)*1.5) calc(var(--base-small)*2);
+}
+.nav-button .fa-bars{
+  display: none;
+  color: white;
+  font-size: var(--base-padding);
 }
 
 
@@ -228,19 +253,14 @@ background-color: var(--white-smoke);
 
 
 /* TABLET */
-@media screen and (max-width: 1100px){
-  .landing img {
-    width: 75%;
-  }
-}
 @media screen and (max-width: 788px){
   #contact .contact-col{
     width: 100%;
   }
 }
 @media screen and (max-width: 733px){
-  .landing img {
-    width: 100%;
+  #landing img {
+    width: 25rem;
   }
   #register .register-box{
     width: 100%;
@@ -249,5 +269,35 @@ background-color: var(--white-smoke);
   #register .register-box:first-of-type{
     border-right: none;
     border-bottom: solid 1px rgb(209, 209, 209);
+  }
+}
+@media screen and (max-width: 575px){
+  nav{
+    display: block;
+    height: auto;
+  }
+  nav .nav-menu{
+    display: none;
+  }
+  nav .nav-button{
+    display: block;
+    align-self: flex-start;
+    cursor: pointer;
+  }
+  nav a {
+    margin: 0;
+    padding: calc(var(--base-small)*1.5) calc(var(--base-small) + var(--base-padding));
+    display: block;
+  }
+  nav a:last-of-type{
+    padding-bottom: calc(var(--base-small)*3);
+  }
+  nav .nav-button .fa-bars{
+    display: block;
+  }
+}
+@media screen and (max-width: 400px){
+  #landing img {
+    width: 15rem;
   }
 }

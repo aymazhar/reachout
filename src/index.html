@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://kit.fontawesome.com/981d86daa7.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <title>T1D Reachout</title>
 </head>
 <body>
 
-  <div class="container landing">
+  <div class="container" id="landing">
     <div>
       <img src="./assets/imgs/logo-long.png" alt="T1D Reachout">
       <h1>Support at your fingertips</h1>
@@ -18,11 +19,16 @@
   </div>
   
   <nav>
-    <a href="#">HOME</a>
-    <a href="#about">ABOUT</a>
-    <a href="#register">SIGN UP</a>
-    <a href="#sponsors">SPONSORS</a>
-    <a href="#contact">CONTACT</a>
+    <button class="nav-button">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-menu">
+      <a href="#landing">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#register">SIGN UP</a>
+      <a href="#sponsors">SPONSORS</a>
+      <a href="#contact">CONTACT</a>
+    </div>
   </nav>
 
   <div class="container" id="about">
@@ -40,13 +46,13 @@
       
         <div class="register-box">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, saepe odio tempora optio tempore voluptas quisquam odit repudiandae nihil ducimus distinctio temporibus!</p>
-          <button>Sign up</button>
+          <button class="btn">Sign up</button>
         </div>
   
 
         <div class="register-box">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, saepe odio tempora optio tempore voluptas quisquam odit repudiandae nihil ducimus distinctio temporibus!</p>
-          <button>Sign up</button>
+          <button class="btn">Sign up</button>
         </div>
     </div>
   </div>
@@ -238,7 +244,7 @@
 
 <!-- JS FILES -->
 <script src="/src/scripts/modal.js"></script>
-
+<script src="/src/scripts/navigation.js"></script>
 
 
 </body>
