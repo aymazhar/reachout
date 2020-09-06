@@ -8,8 +8,8 @@ const scrollSpeed = 650;
 const mobileWidth = 575;
 
 function isMobile(){
-  return window.innerWidth < mobileWidth;
-}
+  return window.outerWidth < mobileWidth;
+};
 
 $('nav a').on('click', function(event)  {
     event.preventDefault();
@@ -42,12 +42,20 @@ window.addEventListener('scroll', function() {
     $('nav').removeClass('navbar-fixed');
     $('#about').css('padding-top', `${padding}` + 'px');
   }
-})
+});
 
-$(document).resize(function(){
+$(window).resize(function(){
+  navbarStyling();
+});
+
+$( window ).on( "orientationchange", function() {
+  navbarStyling();
+});
+
+function navbarStyling() {
   if (isMobile()){
     $('nav .nav-menu').css('display', DISPLAY.NONE);
   } else {
     $('nav .nav-menu').css('display', DISPLAY.FLEX);
   }
-})
+}

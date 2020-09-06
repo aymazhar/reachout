@@ -9,7 +9,7 @@
 
 :root{
   /*COLOUR PALETTE*/
-  --space-gray: #13131b;
+  --space-gray: #1e2630;
   --slate: #252934;
   --hot-pink: #d81b86;
   --hot-pink-dark: #bb1573;
@@ -28,6 +28,10 @@ body{
   position: relative;
   text-align: center;
   color: var(--slate);
+}
+
+body .btn, body .fa-bars{
+  color: white;
 }
 
 p {
@@ -54,12 +58,13 @@ h1{
 }
 
 .btn{
-  all:unset;
+  text-decoration: none;
   background-color: var(--hot-pink);
   color: white;
   padding: var(--base-small) var(--base-padding);
   border-radius: 10px;
   border: none;
+  cursor: pointer;
 }
 
 .btn:hover{
@@ -68,35 +73,66 @@ h1{
 
 .btn:focus {
   box-shadow: 0 0 0 1px var(--hot-pink-dark);
+  outline: none;
 }
 
 
 
 
-
+/* LANDING */
 #landing {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 93vh;
-  background-color: var(--slate);
+  height: 100vh;
   box-shadow: 0px 0px 100px black inset;
+}
+#landing .bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, var(--sandy-brown) 50%, var(--medium-aqua) 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+#landing .bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+#landing .bg3 {
+  animation-duration:5s;
+}
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
+#landing div:last-of-type{
+  width: 100%;
 }
 #landing h1{
   color: white;
   font-size: 2.5rem;
 }
 #landing img {
-  width: 35rem;
+  width: 50%;
   padding: var(--base-small) 0;
 }
 
 
+/* NAVBAR */
+
 nav{
   height: 50px;
   width: 100%;
-  background-color:var(--space-gray);
+  background-color:var(--slate);
   border-bottom: calc(var(--base-small)/2) solid var(--medium-aqua);
   display: flex;
   flex: column wrap;
@@ -120,17 +156,26 @@ nav a:hover{
   top: 0;
 }
 nav .nav-button{
-  all: unset;
   display: none;
+  border: none;
+  background-color: transparent;
   padding: calc(var(--base-small)*1.5) calc(var(--base-small)*2);
 }
-.nav-button .fa-bars{
+nav .nav-button .fa-bars{
   display: none;
+  text-decoration: none;
   color: white;
   font-size: var(--base-padding);
 }
 
 
+/* ABOUT */
+#about{
+  background-color: white;
+}
+
+
+/* REGISTER */
 #register {
 background-color: var(--white-smoke);
 }
@@ -167,6 +212,9 @@ background-color: var(--white-smoke);
 
 
 /* SPONSORS */
+#sponsors{
+  background-color: white;
+}
 #sponsors .logos{
   display: flex;
   flex-flow: row wrap;
@@ -277,9 +325,6 @@ background-color: var(--white-smoke);
   }
 }
 @media screen and (max-width: 733px){
-  #landing img {
-    width: 25rem;
-  }
   #register .register-box{
     width: 100%;
     padding-bottom: var(--base-padding-large);
@@ -290,6 +335,9 @@ background-color: var(--white-smoke);
   }
 }
 @media screen and (max-width: 575px){
+  .container{
+    padding: var(--base-padding);
+  }
   nav{
     display: block;
     height: auto;
@@ -316,6 +364,6 @@ background-color: var(--white-smoke);
 }
 @media screen and (max-width: 400px){
   #landing img {
-    width: 15rem;
+    width: 75%;
   }
 }
