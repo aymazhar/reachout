@@ -192,11 +192,12 @@ background-color: var(--white-smoke);
 #register p:first-of-type{
   padding-bottom: 0;
 }
-#register p:last-of-type{
-  padding-bottom: var(--base-padding-large);
-}
 #register .register-box p {
   padding: var(--base-padding-large);
+  padding-top: 0;
+}
+#register .register-box h3 {
+  padding: var(--base-padding);
 }
 #register .peer-supporter{
   color: var(--sandy-brown);
